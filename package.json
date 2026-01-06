@@ -1,0 +1,12 @@
+{
+  "name": "azure-dropbox-node-app",
+  "version": "1.0.0",
+  "description": "Node.js app deployed from Dropbox to Azure Web App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
