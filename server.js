@@ -1,28 +1,13 @@
-const express = require('express');
-const sql = require('mssql');
-
-const app = express();
-
-// Read connection string from Azure App Service
-const dbConfig = {
-  connectionString: process.env.SQLConnection
-};
-
-app.get('/', async (req, res) => {
-  try {
-    await sql.connect(dbConfig);
-
-    const result = await sql.query`
-      SELECT * FROM Employees
-    `;
-
-    res.json(result.recordset);
-  } catch (err) {
-    res.status(500).send('Database connection failed: ' + err.message);
+{
+  "name": "azure-node-git-app",
+  "version": "1.0.0",
+  "description": "Node.js app deployed to Azure using Git",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mssql": "^10.0.1"
   }
-});
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+}
